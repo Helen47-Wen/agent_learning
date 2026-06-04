@@ -1,0 +1,67 @@
+Issue 结构化分流结果：
+{
+  "issue_type": "bug",
+  "priority": "high",
+  "needs_more_info": false,
+  "suggested_labels": [
+    "bug",
+    "dependencies",
+    "windows"
+  ],
+  "next_action": "create_fix_plan",
+  "assigned_role": "developer",
+  "risk_level": "low",
+  "reason": "Issue reports a crash on Windows due to missing python-dotenv module. The traceback clearly shows ModuleNotFoundError. README does not mention this dependency, indicating a missing dependency declaration. This is a straightforward bug that can be fixed by adding the dependency.",
+  "uncertainty": "low"
+}
+
+
+
+Issue 结构化分流结果：
+{
+  "issue_type": "bug",
+  "priority": "medium",
+  "needs_more_info": true,
+  "suggested_labels": [
+    "needs-reproduction",
+    "incomplete"
+  ],
+  "next_action": "ask_for_reproduction",
+  "assigned_role": "qa_engineer",
+  "risk_level": "medium",
+  "reason": "Issue description is too vague; no specific error messages or steps to reproduce. Need more details to confirm and diagnose the bug.",
+  "uncertainty": "high"
+}
+
+
+Issue 结构化分流结果：
+{
+  "issue_type": "documentation",
+  "priority": "medium",
+  "needs_more_info": false,
+  "suggested_labels": [
+    "documentation"
+  ],
+  "next_action": "assign_to_maintainer",
+  "assigned_role": "docs_writer",
+  "risk_level": "low",
+  "reason": "README缺少安装步骤和依赖说明，属于文档缺失问题",
+  "uncertainty": "low"
+}
+
+Issue 结构化分流结果：
+{
+  "issue_type": "security",
+  "priority": "critical",
+  "needs_more_info": false,
+  "suggested_labels": [
+    "security",
+    "bug"
+  ],
+  "next_action": "escalate_security_review",
+  "assigned_role": "security_reviewer",
+  "risk_level": "high",
+  "reason": "API key (LLM_API_KEY) was printed in plain text in logs, which is a severe security vulnerability that could lead to unauthorized access.",
+  "uncertainty": "low"
+}
+
