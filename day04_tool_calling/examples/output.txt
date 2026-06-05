@@ -1,0 +1,81 @@
+(agent_learning) C:\Users\lijic\Desktop\agent_learning>python C:\Users\lijic\Desktop\agent_learning\day04_tool_calling\examples\01_repo_file_scanner.py
+
+工具 1：list_project_files
+{
+  "tool_name": "list_project_files",
+  "status": "success",
+  "message": "已列出项目文件，共返回 2 个。",
+  "data": {
+    "project_root": "C:\\Users\\lijic\\Desktop\\agent_learning\\projects\\agentic_repoops_assistant",
+    "files": [
+      "README.md",
+      "prompts\\repoops_system_prompt.md"
+    ],
+    "truncated": false
+  },
+  "error_type": "none",
+  "elapsed_seconds": 0.001
+}
+
+工具 2：read_text_file
+{
+  "tool_name": "read_text_file",
+  "status": "success",
+  "message": "已读取文件：README.md",
+  "data": {
+    "relative_path": "README.md",
+    "content": "# Agentic RepoOps Assistant\n\n## 1. 项目定位\n\nAgentic RepoOps Assistant 是一个面向代码仓库、项目文档、日志和 Issue 的工程 Agent。\n\n它的目标不是简单聊天，而是帮助开发者完成项目运维类任务：\n\n- 分析项目结构\n- 判断项目当前状态\n- 分类 GitHub Issue\n- 检索 README / docs / logs\n- 诊断错误日志\n- 生成修复计划\n- 判断是否需要人工确认\n- 记录 Agent 执行轨迹\n- 评估 Agent 输出是否可靠\n\n## 2. 为什么这个项目适合作为 Agent 项目？\n\n因为代码仓库和项目运维任务天然具有 Agent 特征：\n\n- 有明确目标：修复问题、理解项目、推进任务\n- 有状态：文件、日志、Issue、依赖、测试结果\n- 有工具：读文件、查日志、搜索文本、运行测试\n- 有反馈：工具返回结果、错误信息、测试是否通过\n- 有风险：修改文件、运行命令、删除文件需要权限控制\n- 可评估：分类是否正确、修复建议是否有效、是否触发人工确认\n\n## 3. 本月逐步实现目标\n\n### v0：结构化输出\n\n- Issue Triage\n- Pydantic 校验\n- 结构化 JSON 输出\n\n### v1：工具调用\n\n- 扫描项目文件\n- 读取 README\n- 读取日志\n- 搜索关键词\n\n### v2：RAG\n\n- 检索项目文档\n- 检索错误知识库\n- 返回带依据的建议\n\n### v3：Agent Loop\n\n- ReAct 风格循环\n- 根据观察结果决定下一步动作\n\n### v4：LangGraph Workflow\n\n- 状态图\n- 条件路由\n- human-in-the-loop\n\n### v5：Evaluation + Guardrails\n\n- 测试集\n- 评估脚本\n- 权限控制\n- Trace 日志\n\n## 4. 与 AUV Fluent Simulation Agent 的关系\n\nAgentic RepoOps Assistant 是通用主线项目，用来训练标准 Agent 工程能力。\n\n后续这些能力会迁移到 AUV Fluent Simulation Agent：\n\n- 文件检查\n- 日志诊断\n- 阶段判断\n- 错误恢复\n- RAG 知识库\n- 状态机\n- 评估指标\n- 人工确认机制",
+    "truncated": false
+  },
+  "error_type": "none",
+  "elapsed_seconds": 0.014
+}
+
+工具 3：search_text
+{
+  "tool_name": "search_text",
+  "status": "success",
+  "message": "搜索完成，找到 2 个匹配文件。",
+  "data": {
+    "keyword": "Agent",
+    "matches": [
+      "README.md",
+      "prompts\\repoops_system_prompt.md"
+    ]
+  },
+  "error_type": "none",
+  "elapsed_seconds": 0.014
+}
+
+
+
+(agent_learning) C:\Users\lijic\Desktop\agent_learning>python C:\Users\lijic\Desktop\agent_learning\day04_tool_calling\examples\02_tool_call_router.py
+
+模型选择的工具：
+{
+  "thought": "用户想要查看项目有哪些文件并判断README是否存在。最好的第一步是列出项目文件，这样可以获取所有文件的列表，从而确认README.md是否存在。",
+  "tool_name": "list_project_files",
+  "tool_args": {
+    "project_root": "C:\\Users\\lijic\\Desktop\\agent_learning\\projects\\agentic_repoops_assistant"
+  },
+  "risk_level": "low",
+  "need_human_review": false,
+  "reason": "只读操作，列出文件是安全的，且不需要人工审查。"
+}
+
+工具执行结果：
+{
+  "tool_name": "list_project_files",
+  "status": "success",
+  "message": "已列出项目文件，共返回 2 个。",
+  "data": {
+    "project_root": "C:\\Users\\lijic\\Desktop\\agent_learning\\projects\\agentic_repoops_assistant",
+    "files": [
+      "README.md",
+      "prompts\\repoops_system_prompt.md"
+    ],
+    "truncated": false
+  },
+  "error_type": "none",
+  "elapsed_seconds": 0.001
+}
