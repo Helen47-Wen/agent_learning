@@ -1,0 +1,72 @@
+(agent_learning) C:\Users\lijic\Desktop\agent_learning>python C:\Users\lijic\Desktop\agent_learning\day05_state_bdi\examples\01_state_update_demo.py
+
+最终 State：
+{
+  "run_id": "day05-demo-001",
+  "user_goal": "检查 RepoOps Assistant 项目的当前状态，并判断下一步动作。",
+  "belief": {
+    "project_root": "C:\\Users\\lijic\\Desktop\\agent_learning\\projects\\agentic_repoops_assistant",
+    "files": [
+      "README.md",
+      "prompts/repoops_system_prompt.md",
+      "docs/tool_design.md"
+    ],
+    "has_readme": true,
+    "has_requirements": false,
+    "has_tests": false,
+    "recent_logs": []
+  },
+  "desire": "帮助用户推进 Agentic RepoOps Assistant 项目的工程化实现。",
+  "intention": "create_fix_plan",
+  "issue_triage": {
+    "issue_type": "bug",
+    "priority": "high",
+    "needs_more_info": false,
+    "next_action": "create_fix_plan",
+    "risk_level": "low",
+    "reason": "Issue 中包含明确错误：ModuleNotFoundError: No module named 'dotenv'。"
+  },
+  "observations": [
+    {
+      "tool_name": "list_project_files",
+      "status": "success",
+      "message": "已根据项目文件列表更新 Belief。",
+      "data": {
+        "file_count": 3,
+        "has_readme": true,
+        "has_requirements": false,
+        "has_tests": false
+      }
+    }
+  ],
+  "risk_level": "low",
+  "need_human_review": false,
+  "status": "running",
+  "next_action_reason": "Issue 信息充分，且下一步建议为创建修复计划。",
+  "updated_at": "2026-06-05T16:01:08"
+}
+
+压缩后的模型上下文：
+{
+  "user_goal": "检查 RepoOps Assistant 项目的当前状态，并判断下一步动作。",
+  "desire": "帮助用户推进 Agentic RepoOps Assistant 项目的工程化实现。",
+  "belief": {
+    "project_root": "C:\\Users\\lijic\\Desktop\\agent_learning\\projects\\agentic_repoops_assistant",
+    "has_readme": true,
+    "has_requirements": false,
+    "has_tests": false,
+    "file_count": 3
+  },
+  "issue_triage": {
+    "issue_type": "bug",
+    "priority": "high",
+    "needs_more_info": false,
+    "next_action": "create_fix_plan",
+    "risk_level": "low",
+    "reason": "Issue 中包含明确错误：ModuleNotFoundError: No module named 'dotenv'。"
+  },
+  "risk_level": "low",
+  "need_human_review": false,
+  "intention": "create_fix_plan",
+  "next_action_reason": "Issue 信息充分，且下一步建议为创建修复计划。"
+}
