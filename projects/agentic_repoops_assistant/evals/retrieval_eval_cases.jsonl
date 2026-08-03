@@ -1,0 +1,5 @@
+{"case_id":"repoops_capabilities","question":"RepoOps Assistant v0 目前有哪些核心能力？","expected_keywords":["Agent State","Action","Observation","Trace"],"expected_source_contains":["README","design"]}
+{"case_id":"react_loop","question":"RepoOps Assistant 的 ReAct 循环是如何运行的？","expected_keywords":["Thought","Action","Observation","循环"],"expected_source_contains":["react","loop"]}
+{"case_id":"agent_state","question":"Agent State 中保存了哪些信息？","expected_keywords":["state","messages","trace"],"expected_source_contains":["state","model"]}
+{"case_id":"tool_calling","question":"RepoOps Assistant 如何调用只读工具？","expected_keywords":["tool","action","参数"],"expected_source_contains":["tool"]}
+{"case_id":"rag_design","question":"当前 RepoOps Assistant 的 RAG 索引是如何构建的？","expected_keywords":["chunk","embedding","jsonl","cosine"],"expected_source_contains":["rag"]}

@@ -1,0 +1,5 @@
+{"case_id":"rag_index_build","question":"当前 RepoOps Assistant 的 RAG 索引是如何构建的？","reference_answer":"程序扫描允许索引的项目文件，将文本切分成带有重叠的 chunk，调用 qwen3-embedding:8b 生成 embedding，然后把 chunk 的来源、位置、文本和 embedding 逐行保存到 repoops_rag_index.jsonl。"}
+{"case_id":"rag_retrieval_flow","question":"用户提问后，系统如何找到最相关的项目资料？","reference_answer":"系统先为用户问题生成 embedding，然后读取 JSONL 索引中的文档 chunk embedding，逐条计算余弦相似度，按照分数从高到低排序，最后选取 top_k chunk 作为回答上下文。"}
+{"case_id":"rag_model_roles","question":"当前 RAG 系统中的 embedding 模型和聊天模型分别负责什么？","reference_answer":"远程 Ollama 中的 qwen3-embedding:8b 负责把问题和项目文档转换为语义向量；原有云端聊天模型负责读取问题与检索到的 top_k context，并生成最终回答。"}
+{"case_id":"jsonl_role","question":"repoops_rag_index.jsonl 在当前项目中起什么作用？","reference_answer":"它是当前教学版 RAG 的本地索引文件。每一行保存一个独立 chunk 的文本、来源位置、标识和 embedding，检索时程序读取这些记录并计算相似度。"}
+{"case_id":"vector_database","question":"为什么当前阶段没有直接使用向量数据库？","reference_answer":"当前阶段使用 JSONL 是为了看清 chunk、embedding、余弦相似度和 top_k 检索的底层流程。向量数据库适合在数据规模扩大、需要高效索引、元数据过滤和增量更新时再引入。"}
